@@ -1,0 +1,16 @@
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild*/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Aa]rtifacts/
+
+# IDE
+.vs/
+.vscode/
+*.csproj
+*.sln
+*.user
+*.userprefs
