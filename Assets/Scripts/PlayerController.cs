@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public InputAction DownAction;
     */
     public InputAction MoveAction;
+    Rigidbody2D rigidbody2D;
+    Vector2 move;
     void Start()
     {
         /*
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
         */;
 
         MoveAction.Enable();
+        rigidbody2D = GetComponent<Rigidbody2D>();
 
     }
 
@@ -28,10 +31,12 @@ public class PlayerController : MonoBehaviour
     {
 
 
-        Vector2 move = MoveAction.ReadValue<Vector2>();
+        move = MoveAction.ReadValue<Vector2>();
         Debug.Log(move);
+        /*
         Vector2 position = (Vector2)transform.position + move * 3.0f * Time.deltaTime;
         transform.position = position;
+        */
 
         /*
          * 
@@ -80,6 +85,11 @@ public class PlayerController : MonoBehaviour
         position.y = position.y + 0.07f * vertical;
         transform.position = position;
         */
+    }
+    void FixedUpdate()
+    {
+        Vector2 position = (Vector2)rigidbody2D.position + move * 3.0f * Time.deltaTime;
+        rigidbody2D.MovePosition(position);
     }
 }
 
